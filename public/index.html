@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>URL Shortener</title>
+  <meta name="description" content="A simple, fast, and gorgeous URL shortener. It creates instant, short aliases for your long web links.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="background-effects">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+  </div>
+
+  <main class="app-container">
+    <header class="app-header">
+      <h1>Shorten your links, elevate your style.</h1>
+      <p class="subtitle">Enter any URL below to generate a sleek, memorable, and trackable short link instantly.</p>
+    </header>
+
+    <section class="shortener-card">
+      <form id="shortener-form" class="shorten-form">
+        <div class="input-group">
+          <input 
+            type="text" 
+            id="long-url" 
+            placeholder="Paste your long link here (e.g., https://example.com/very/long/path)" 
+            required 
+            autocomplete="off"
+            aria-label="Long URL to shorten"
+          >
+          <button type="submit" id="submit-btn">
+            <span>Shorten</span>
+            <div class="spinner" id="btn-spinner" aria-hidden="true" style="display: none;"></div>
+          </button>
+        </div>
+        <p id="error-message" class="error-text" role="alert"></p>
+      </form>
+
+      <div id="result-container" class="result-box" style="display: none;">
+        <div class="result-label">Your shortened link:</div>
+        <div class="result-row">
+          <a href="#" id="shortened-url" target="_blank" class="short-link"></a>
+          <button id="copy-btn" class="copy-btn" aria-label="Copy short URL">
+            <span id="copy-text">Copy</span>
+            <svg class="copy-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+  
+    <section class="recent-links-section">
+      <h2>Recent Links</h2>
+      <div class="table-container">
+        <table id="links-table">
+          <thead>
+            <tr>
+              <th>Original URL</th>
+              <th>Short Link</th>
+              <th>Clicks</th>
+            </tr>
+          </thead>
+          <tbody id="links-tbody">
+            <!-- Dynamically populated -->
+          </tbody>
+        </table>
+        <div id="empty-state" class="empty-state">
+          No URLs shortened yet. Create one above to see analytics!
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>&copy; 2026 Crafted for performance and aesthetics.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
